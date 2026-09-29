@@ -1,9 +1,5 @@
 # 30 Dakikada High Agency
 
-### HighAgency.com
-
-<!-- GORSEL 01 -->
-
 ## High agency nedir?
 
 Bence high agency, 21. yüzyılın belki de en önemli fikri. High agency'yi ilk öğrendiğimde benden saklanmış bir sır gibi gelmişti.

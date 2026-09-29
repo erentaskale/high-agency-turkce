@@ -6,7 +6,6 @@ Metindeki `<!-- GORSEL NN -->` işaretleriyle eşleşir. Dosyalar `gorseller/` k
 
 | No | Part | Hangi paragraftan sonra | Ne gösteriyor | Yazı var mı? (v2) | Dosya | Orijinal URL |
 |---|---|---|---|---|---|---|
-| 01 | 01-giris | HighAgency.com… | Mavi arka planlı, gömlekli genç adamın çizim portresi (yazar avatarı) | hayır | `01-yazar-portresi.avif` (400×400) | [link](https://www.highagency.com/_assets/9fa9f49b2e_67891452634f936deafd7231_4ki_Rww2_400x400.avif) |
 | 02 | 01-giris | High Agency in a Question… | Duvarları yazılarla dolu, pis ve harap bir hapishane hücresi | hayır | `02-hapishane-hucresi.avif` (964×544) | [link](https://www.highagency.com/_assets/89b6b12a84_zonaws.com_2Fpublic_2Fimages_2F65ec8a5a-93a2-4344-a8a3-0331170d543f_964x544.avif) |
 | 03 | 01-giris | High Agency in a Meme… | Issız adada iki adam: biri yardım bekliyor, diğeri sal yapıp kaçıyor | evet: A ve B panelleri, kumda HELP yazısı | `03-issiz-ada-meme.avif` (964×580) | [link](https://www.highagency.com/_assets/5cde7e2fa3_zonaws.com_2Fpublic_2Fimages_2F90c89583-02cd-45bf-865f-88bfaeefa40c_964x580.avif) |
 | 04 | 01-giris | August Landmesser refusing to salute at a Nazi Rally in Hamburg.… | Nazi mitinginde selam vermeyen tek adam, kırmızı daireyle işaretli | hayır | `04-selam-vermeyen-adam.avif` (964×624) | [link](https://www.highagency.com/_assets/ad77ee97b4_zonaws.com_2Fpublic_2Fimages_2Fae61f21a-2550-4847-a91b-5d599a63803a_964x624.avif) |

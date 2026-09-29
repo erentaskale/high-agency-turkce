@@ -6,6 +6,7 @@
   --vurgu: #047857;
   --cizgi: #e3e6e3;
   --yuzey: #f3f6f4;
+  --cubuk: #c9cfca;
 
   --font-baslik: "Poppins", system-ui, sans-serif;
   --font-metin: "Source Serif 4", Georgia, serif;
@@ -30,6 +31,7 @@
     --vurgu: #34d399;
     --cizgi: #2a2e2a;
     --yuzey: #1c1f1c;
+    --cubuk: #3a403b;
     color-scheme: dark;
   }
 }
@@ -40,11 +42,26 @@
   --vurgu: #34d399;
   --cizgi: #2a2e2a;
   --yuzey: #1c1f1c;
+  --cubuk: #3a403b;
   color-scheme: dark;
 }
 
 /* ===== Temel ===== */
 * { box-sizing: border-box; }
+
+/* Kaydırma çubukları: ince, yuvarlak, temanın renginde */
+html, .icindekiler {
+  scrollbar-width: thin;
+  scrollbar-color: var(--cubuk) transparent;
+}
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--cubuk);
+  border-radius: 8px;
+  border: 2px solid var(--arka); /* çubuğun etrafında boşluk hissi */
+}
+::-webkit-scrollbar-thumb:hover { background: var(--ikincil); }
 
 body {
   margin: 0;
@@ -169,16 +186,14 @@ a { color: var(--vurgu); text-underline-offset: 3px; }
 }
 
 /* ===== Giriş alanı ===== */
-.giris {
-  margin-bottom: var(--b5);
-  padding-bottom: var(--b4);
-  border-bottom: 1px solid var(--cizgi);
-}
-.ust-yazi {
-  margin: 0 0 var(--b3);
-  font-family: var(--font-baslik);
-  font-size: 14px;
-  color: var(--ikincil);
+.giris { margin-bottom: var(--b4); }
+
+/* Giriş ile metin arasındaki heykel: arka planı şeffaf, iki temada da süzülür */
+.giris-gorseli {
+  display: block;
+  width: min(380px, 80%);
+  height: auto;
+  margin: 0 auto;
 }
 .giris h1 {
   margin: 0;
