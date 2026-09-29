@@ -29,7 +29,7 @@ George Mack'in "High Agency in 30 Minutes" denemesinin Türkçe versiyonu. Tek s
 └──────────┴───────────────────────────────┘
 ```
 
-- **İçindekiler:** Solda sabit durur, açılıp kapatılabilir (◀)
+- **İçindekiler:** Solda sabit durur. Üst bardaki ☰ düğmesiyle açılıp kapanır (telefondaki düğmenin aynısı, her ekranda aynı yerde). Okunan bölümün başlığı vurgu renginde görünür
 - **Okuma ilerleme çubuğu:** En üstte, tema renginde, sayfa kaydırıldıkça dolar
 - **Karanlık mod:** Düğmesi sağ üstte. Site ilk açılışta cihazın temasına uyar
 
