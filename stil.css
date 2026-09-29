@@ -70,6 +70,50 @@ a { color: var(--vurgu); text-underline-offset: 3px; }
   background: var(--arka);
   border-bottom: 1px solid var(--cizgi);
 }
+.ust-bar { justify-content: space-between; }
+.ust-dugmeler { display: flex; gap: var(--b1); }
+.dugme {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--metin);
+  cursor: pointer;
+}
+.dugme:hover { background: var(--yuzey); color: var(--vurgu); }
+.dugme:focus-visible, a:focus-visible { outline: 2px solid var(--vurgu); outline-offset: 2px; }
+
+/* Tema düğmesi: aydınlıkta ay, karanlıkta güneş gösterir */
+.ikon-gunes { display: none; }
+:root[data-tema="karanlik"] .ikon-ay { display: none; }
+:root[data-tema="karanlik"] .ikon-gunes { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="acik"]) .ikon-ay { display: none; }
+  :root:not([data-tema="acik"]) .ikon-gunes { display: block; }
+}
+
+/* ===== Okuma çubuğu ===== */
+.ilerleme {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  height: 3px;
+  pointer-events: none;
+}
+.ilerleme span {
+  display: block;
+  height: 100%;
+  background: var(--vurgu);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
 .site-adi {
   font-family: var(--font-baslik);
   font-weight: 600;
@@ -109,7 +153,12 @@ a { color: var(--vurgu); text-underline-offset: 3px; }
 .icindekiler ol ol { margin: var(--b2) 0 var(--b3) var(--b3); }
 .icindekiler ol ol a { font-weight: 500; color: var(--ikincil); }
 .icindekiler a { text-decoration: none; }
-.icindekiler a:hover { color: var(--vurgu); }
+.icindekiler a:hover,
+.icindekiler a.aktif { color: var(--vurgu); }
+
+/* Masaüstünde menü kapatıldıysa metin tüm genişliği kullanır */
+:root[data-menu="kapali"] .duzen { display: block; }
+:root[data-menu="kapali"] .icindekiler { display: none; }
 
 /* Metin sütunu ~70 karakter */
 .metin {
@@ -213,10 +262,37 @@ figure img {
   color: var(--ikincil);
 }
 
-/* ===== Telefon ve dar ekran: yan menü yok, metin düz akar ===== */
+/* ===== Animasyon: sadece okura yardım edenler =====
+   Hareketi azaltmayı seçmiş kullanıcılarda (işletim sistemi ayarı) hiç çalışmaz */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+  body, .ust-bar, .icindekiler, .kaynak-notu, article blockquote {
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+  .icindekiler a, .dugme { transition: color 0.15s, background-color 0.15s; }
+}
+
+/* ===== Telefon ve dar ekran: yan menü yok, metin düz akar =====
+   Başlık listesi ☰ ile üst bardan aşağı açılır */
 @media (max-width: 900px) {
   .duzen { display: block; }
-  .icindekiler { display: none; }
+  .icindekiler,
+  :root[data-menu="kapali"] .icindekiler {
+    display: none;
+    position: fixed;
+    top: var(--ust-bar);
+    left: 0;
+    right: 0;
+    z-index: 9;
+    height: auto;
+    max-height: 70vh;
+    padding: var(--b4) var(--b3);
+    background: var(--arka);
+    border-right: 0;
+    border-bottom: 1px solid var(--cizgi);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+  body.menu-acik .icindekiler { display: block; }
 }
 @media (max-width: 600px) {
   body { font-size: 18px; }
