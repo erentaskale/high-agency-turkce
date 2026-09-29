@@ -186,10 +186,14 @@ a { color: var(--vurgu); text-underline-offset: 3px; }
 }
 
 /* ===== Giriş alanı ===== */
-.giris {
-  margin-bottom: var(--b5);
-  padding-bottom: var(--b4);
-  border-bottom: 1px solid var(--cizgi);
+.giris { margin-bottom: var(--b4); }
+
+/* Giriş ile metin arasındaki heykel: arka planı şeffaf, iki temada da süzülür */
+.giris-gorseli {
+  display: block;
+  width: min(380px, 80%);
+  height: auto;
+  margin: 0 auto;
 }
 .giris h1 {
   margin: 0;
