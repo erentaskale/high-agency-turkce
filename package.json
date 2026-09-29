@@ -1,0 +1,24 @@
+{
+  "name": "blog_sitesi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erentaskale/high-agency-turkce.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/erentaskale/high-agency-turkce/issues"
+  },
+  "homepage": "https://github.com/erentaskale/high-agency-turkce#readme",
+  "dependencies": {
+    "marked": "^18.0.14"
+  }
+}

@@ -70,6 +70,28 @@ Vurgu rengi okuma çubuğunda, linklerde ve seçili başlıkta kullanılır. Her
 ### Teknoloji: saf HTML + CSS + JS
 Veritabanı ve sunucu gerekmiyor, sitenin tek sayfası olduğu için içerik tekrarı sorunu da yok. MERN, gerçekten ihtiyaç duyulacak blog projesinde kullanılacak. Yayın yeri GitHub Pages.
 
+### Mimari: önceden çevir (build)
+Okur siteye girdiğinde yazı hazır olmalı, sonradan yüklenmemeli. Bu yüzden Markdown sayfaya dönüştürme işi okurun tarayıcısında değil, bizim bilgisayarımızda bir kere yapılır. Orijinal site (Webflow) de aynı mantıkla çalışıyor.
+
+```
+ceviri/parts/*.tr.md ─┐
+ceviri/gorseller.json ├─► node build.js ─► index.html
+sablon.html ──────────┘
+```
+
+| Dosya | Görevi |
+|---|---|
+| `ceviri/` | İçerik kaynağı. Metin **sadece burada** düzenlenir |
+| `sablon.html` | Sayfa iskeleti. Üst bar, giriş, içindekiler ve metnin geleceği yer |
+| `stil.css` | Görünüm |
+| `site.js` | Davranış: tema, okuma çubuğu, içindekiler menüsü |
+| `build.js` | Markdown + JSON + şablonu birleştirip `index.html` üretir |
+| `index.html` | **Üretilen dosya, elle düzenlenmez.** GitHub Pages bunu yayınlar |
+
+Metin değişince: `.md` dosyasını düzelt → `node build.js` → commit.
+
+- **Adres:** erentaskale.github.io/high-agency-turkce (başlık yine "İnisiyatifin Gücü")
+
 ## v2'ye kalanlar
 - Görsellerdeki yazıların çevrilmesi
 - Kitap bölümü tarzı başlıklar (D düzeni), dergi tarzı içindekiler kartları (E düzeni)
