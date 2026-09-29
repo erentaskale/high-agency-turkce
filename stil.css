@@ -191,12 +191,6 @@ a { color: var(--vurgu); text-underline-offset: 3px; }
   padding-bottom: var(--b4);
   border-bottom: 1px solid var(--cizgi);
 }
-.ust-yazi {
-  margin: 0 0 var(--b3);
-  font-family: var(--font-baslik);
-  font-size: 14px;
-  color: var(--ikincil);
-}
 .giris h1 {
   margin: 0;
   font-family: var(--font-baslik);

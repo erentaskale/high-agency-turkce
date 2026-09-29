@@ -2,17 +2,6 @@
   "aciklama": "Metindeki <!-- GORSEL NN --> ve <!-- VIDEO Vn: ... --> isaretleri bu listedeki no alanina karsilik gelir. dekoratif=true olanlar ayirici cizgidir (alt=\"\" kullan).",
   "gorseller": [
     {
-      "no": "01",
-      "dosya": "gorseller/01-yazar-portresi.avif",
-      "part": "01-giris",
-      "genislik": 400,
-      "yukseklik": 400,
-      "alt": "Mavi arka plan önünde açık mavi gömlek giymiş, gülümseyen genç bir adamın dijital çizim portresi.",
-      "dekoratif": false,
-      "uzerinde_yazi": null,
-      "orijinal_url": "https://www.highagency.com/_assets/9fa9f49b2e_67891452634f936deafd7231_4ki_Rww2_400x400.avif"
-    },
-    {
       "no": "02",
       "dosya": "gorseller/02-hapishane-hucresi.avif",
       "part": "01-giris",
