@@ -43,19 +43,46 @@ icerik = icerik.replace(/<!-- VIDEO (V\d+):[^>]*-->/g, (_, no) => {
   return `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${v.youtube_id}" title="YouTube videosu" loading="lazy" allowfullscreen></iframe></div>`;
 });
 
-// 4) Başlıklara id ver ki içindekiler menüsü onlara link verebilsin
+// Yazının kendi başlığı (h1) giriş alanında duruyor, metinde tekrar etmesin
+icerik = icerik.replace(/<h1>.*?<\/h1>/, "");
+
+// 4) Başlıklara id ver ve içindekiler listesini topla
 const kullanilanIdler = new Set();
+const basliklar = []; // { seviye: 2 | 3, id, metin }
 
 icerik = icerik.replace(/<h([23])>(.*?)<\/h\1>/g, (_, seviye, ic) => {
-  const temel = slug(ic.replace(/<[^>]+>/g, ""));
+  const metin = ic.replace(/<[^>]+>/g, "");
+  const temel = slug(metin);
   let id = temel;
   for (let i = 2; kullanilanIdler.has(id); i++) id = `${temel}-${i}`;
   kullanilanIdler.add(id);
+  basliklar.push({ seviye: Number(seviye), id, metin });
   return `<h${seviye} id="${id}">${ic}</h${seviye}>`;
 });
 
+// h2'ler ana madde olur, altlarındaki h3'ler onların alt listesine girer
+const gruplar = [];
+for (const b of basliklar) {
+  if (b.seviye === 2 || gruplar.length === 0) gruplar.push({ ana: b, alt: [] });
+  else gruplar[gruplar.length - 1].alt.push(b);
+}
+
+const link = (b) => `<a href="#${b.id}">${b.metin}</a>`;
+const icindekiler =
+  "<ol>\n" +
+  gruplar
+    .map((g) => {
+      const alt = g.alt.length ? `\n<ol>\n${g.alt.map((b) => `<li>${link(b)}</li>`).join("\n")}\n</ol>\n` : "";
+      return `<li>${link(g.ana)}${alt}</li>`;
+    })
+    .join("\n") +
+  "\n</ol>";
+
 // 5) Şablona yerleştir ve yaz
-const cikti = sablon.replace("{{ICERIK}}", icerik);
+// (replace'e metin değil fonksiyon veriyoruz: içerikte "$&" gibi özel dizgiler olsa bile bozulmaz)
+const cikti = sablon
+  .replace("{{ICINDEKILER}}", () => icindekiler)
+  .replace("{{ICERIK}}", () => icerik);
 fs.writeFileSync(path.join(KOK, "index.html"), cikti);
 
 // 6) Kısa rapor
